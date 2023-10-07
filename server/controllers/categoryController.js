@@ -1,5 +1,7 @@
-const {Category} = require('../models/models')
-const ApiError = require('../error/ApiError')
+const {Category, Brand} = require('../models/models')
+const db = require('../postgr')
+
+
 class CategoryController
 {
     async create(req, res)
@@ -13,6 +15,14 @@ class CategoryController
     {
         const categories = await Category.findAll()
         return res.json(categories)
+    }
+    async deleteById(req, res)
+    {
+        const id = req.params
+        console.log(id)
+        await db.query('DELETE FROM "categories" WHERE "name" = $1', [id.id])
+        const brands = await Brand.findAll()
+        return res.json(brands)
     }
 }
 

@@ -7,6 +7,7 @@ const fileUpLoad = require('express-fileupload')
 const router = require('./routes/index')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 const path = require('path')
+const db = require('./postgr')
 
 const PORT = process.env.PORT || 5000
 
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpLoad({}))
 app.use('/api', router)
+db.connect()
 
 //
 app.use(errorHandler)

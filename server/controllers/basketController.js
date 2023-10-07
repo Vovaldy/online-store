@@ -1,5 +1,4 @@
-const {User, BasketGame, Game, GameInfo} = require('../models/models')
-const ApiError = require('../error/ApiError')
+const {BasketGame, Game, GameInfo} = require('../models/models')
 class BasketController
 {
     async add(req, res)

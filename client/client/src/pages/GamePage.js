@@ -3,7 +3,7 @@ import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import bigStar from '../assets/bigStar.png'
 import {useParams} from 'react-router-dom'
 import {createBasketGame, fetchOneGame} from "../http/gameAPI";
-import {ADMIN_ROUTE, BASKET_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
+import {BASKET_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import {useHistory} from 'react-router-dom'
 import {Context} from "../index";
 

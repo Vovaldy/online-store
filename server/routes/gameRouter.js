@@ -6,5 +6,6 @@ const checkRole = require("../middleware/checkRoleMiddleware");
 router.post('/',checkRole("ADMIN"),gameController.create)
 router.get('/', gameController.getAll)
 router.get('/:id', gameController.getOne)
+router.delete('/:id', gameController.deleteById)
 
 module.exports = router

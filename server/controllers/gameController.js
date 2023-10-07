@@ -1,7 +1,9 @@
 const uuid = require('uuid')
 const path = require('path')
-const {Game, GameInfo} = require('../models/models')
+const {Game, GameInfo, Brand} = require('../models/models')
 const ApiError = require('../error/ApiError')
+const db = require('../postgr')
+
 class GameController
 {
     async create(req, res)
@@ -69,6 +71,14 @@ class GameController
             }
         )
         return res.json(game)
+    }
+    async deleteById(req, res)
+    {
+        const id = req.params
+        console.log(id)
+        await db.query('DELETE FROM "games" WHERE "name" = $1', [id.id])
+        const brands = await Brand.findAll()
+        return res.json(brands)
     }
 }
 

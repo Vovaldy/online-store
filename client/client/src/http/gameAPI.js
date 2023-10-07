@@ -15,6 +15,11 @@ export const createBrand = async (brand) => {
     return data
 }
 
+export const deleteBrand = async (id) => {
+    const {data} = await $authHost.delete('api/brand/' + id)
+    return data
+}
+
 export const fetchBrands = async () => {
     const {data} = await $host.get('api/brand', )
     return data
@@ -48,3 +53,12 @@ export const createGame = async (game) => {
 }
 
 
+export const deleteCategory = async (id) => {
+    const {data} = await $authHost.delete('api/category/' + id)
+    return data
+}
+
+export const deleteGame = async (id) => {
+    const {data} = await $authHost.delete('api/game/' + id)
+    return data
+}
